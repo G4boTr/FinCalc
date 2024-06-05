@@ -1,18 +1,11 @@
 import './App.css';
-import Button from './components/common/Button';
+import SideBar from './components/common/SideBar';
 
-function App() {
-
-  const handleClick = (event) => {
-    console.log(`Usted dio click en: ${ event.target.className }`)
-  }
+function App() {  
+  
   return (
-    <div>
-
-      <Button text= "Opciones" onClick= { handleClick } className="left-buttons" /> 
-
-      
-      
+    <div>   
+          <SideBar/>
     </div>
   );
 }
