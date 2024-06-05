@@ -3,16 +3,15 @@ import Button from './components/common/Button';
 
 function App() {
 
-  const handleClick = () => {
-    console.log("Boton clickeado")
+  const handleClick = (event) => {
+    console.log(`Usted dio click en: ${ event.target.className }`)
   }
   return (
     <div>
 
-      <Button onClick= { handleClick } className="left-buttons"
-      > Haz click aqui
+      <Button text= "Opciones" onClick= { handleClick } className="left-buttons" /> 
 
-      </Button>
+      
       
     </div>
   );
