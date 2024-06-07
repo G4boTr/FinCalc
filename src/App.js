@@ -1,14 +1,14 @@
 import './App.css';
-import SideBar from './components/common/SideBar';
-import Content from './components/common/Content';
+import MainLayout from './components/layout/MainLayout';
+import LoadingScreen from './components/layout/ImplementLoadingScreen';
+import ImplementLoadingScreen from './components/layout/ImplementLoadingScreen';
 
 function App() {    
+ 
   return (
-    <div className='App'>       
-      <SideBar />
-      <Content />
+    <div className='App'> 
+      <ImplementLoadingScreen />    
     </div>
   );
 }
-
 export default App;
