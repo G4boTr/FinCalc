@@ -5,7 +5,7 @@ import LoadingScreen from "./LoadingScreen";
 
 
 
-const ImplementLoadingScreen = ( { onClick } ) => {
+const ImplementLoadingScreen = () => {
 
     const [loading, setLoading] = useState(true);
 

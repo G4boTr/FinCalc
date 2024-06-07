@@ -8,7 +8,7 @@ export default class Content extends React.Component {
     render() {
         return(
             <div className="Content">
-                <h1 style={ { fontSize: "85px", marginTop: "5px", zIndex: 25 } }> { this.defaultMsj } </h1>
+                <h1 style={ { fontSize: "85px", marginTop: "5px", zIndex: 25, marginLeft: "5vw" } }> { this.defaultMsj } </h1>
             </div>
         );
     }

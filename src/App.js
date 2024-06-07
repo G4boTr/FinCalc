@@ -1,12 +1,15 @@
 import './App.css';
-import MainLayout from './components/layout/MainLayout';
-import LoadingScreen from './components/layout/ImplementLoadingScreen';
 import ImplementLoadingScreen from './components/layout/ImplementLoadingScreen';
 
-function App() {    
+function App() {   
+  
+  const preventContextMenu = (event) => {
+    event.preventDefault();
+    
+  }
  
   return (
-    <div className='App'> 
+    <div className='App' onContextMenu={ preventContextMenu }> 
       <ImplementLoadingScreen />    
     </div>
   );

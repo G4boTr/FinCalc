@@ -9,7 +9,7 @@ const MainLayout = () => {
     };
 
     return(
-        <div className="main-layout" style={ { margin: 0, padding: 0 } }>            
+        <div className="main-layout" style={ { margin: 0, padding: 0, display: "flex", justifyContent: "flex-start"} }>            
             <SideBar onClick={ handleClick }/>
             <Content />
         </div>
