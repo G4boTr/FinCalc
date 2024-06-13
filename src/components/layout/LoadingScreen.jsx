@@ -10,7 +10,7 @@ const LoadingScreen = () => {
             <h1>
                 { appName }
             </h1>   
-                    
+            
         </div>
     );
 }

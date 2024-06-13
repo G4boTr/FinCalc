@@ -1,4 +1,6 @@
-function Button( { text, onClick, className, width, height } ) {
+
+
+function ButtonMain( { text, onClick, className, width, height } ) {
 
     const style = {
         width: width,
@@ -12,4 +14,4 @@ function Button( { text, onClick, className, width, height } ) {
     );
 }
 
-export default Button;
+export default ButtonMain;

@@ -3,8 +3,6 @@ import "../../assets/styles/ImplementLoadingScreen.css";
 import MainLayout from "./MainLayout";
 import LoadingScreen from "./LoadingScreen";
 
-
-
 const ImplementLoadingScreen = () => {
 
     const [loading, setLoading] = useState(true);
