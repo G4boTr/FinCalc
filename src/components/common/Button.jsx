@@ -8,7 +8,7 @@ function ButtonMain( { text, onClick, className, width, height } ) {
     }; 
 
     return(
-        <button className= { className } onClick= { onClick } style={ style }  >           
+        <button className= "">           
             { text }
         </button>
     );

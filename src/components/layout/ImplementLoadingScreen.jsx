@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../assets/styles/ImplementLoadingScreen.css";
+//import "../../assets/styles/ImplementLoadingScreen.css";
 import MainLayout from "./MainLayout";
 import LoadingScreen from "./LoadingScreen";
 
@@ -14,7 +14,7 @@ const ImplementLoadingScreen = () => {
     }, []);
 
     return(          
-        <div className="implement-loading-screen">
+        <div className="d-flex">
             { loading ? (
                 <LoadingScreen />
             ) : <MainLayout /> }     

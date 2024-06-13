@@ -1,3 +1,4 @@
+/*
 .side-bar {
     z-index: 25;
     -webkit-user-select: none;
@@ -34,4 +35,14 @@
     
   }
   
+*/
+.cursor-pointer:hover {
+  cursor: pointer;
+  background-color: #517582;
+  user-select: none;
+}
 
+.opciones {
+  cursor: default;
+  user-select: none;
+}

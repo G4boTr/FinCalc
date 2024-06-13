@@ -1,4 +1,4 @@
-import "../../assets/styles/LoadingScreen.css";
+//import "../../assets/styles/LoadingScreen.css";
 
 
 const LoadingScreen = () => {
@@ -6,7 +6,7 @@ const LoadingScreen = () => {
     const appName = "FinCalc"; 
 
     return(
-        <div className="loading-screen-main" >
+        <div className="container-fluid width 100% display-1" >
             <h1>
                 { appName }
             </h1>   

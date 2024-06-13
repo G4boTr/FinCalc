@@ -7,9 +7,8 @@ export default class Content extends Component {
     }
     render() {
         return(
-            <div className="Content">
-                <h1 style={ { fontSize: "85px", marginTop: "5px", zIndex: 25, marginLeft: "5vw", color: "#fff" } }
-                > { this.defaultMsj } </h1>                
+            <div className="d-flex">
+                <h1 className="display-1"> { this.defaultMsj } </h1>                
             </div>
             
         );
