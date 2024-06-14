@@ -6,13 +6,14 @@ const ProgressBar = () => {
 
   useEffect(() => {
     const fillProgress = () => {
+      let chargeTime = 2000;
       let startTime = Date.now();
-      const endTime = startTime + 2000; 
+      const endTime = startTime + chargeTime; 
       
       const updateProgress = () => {
         const now = Date.now();
         const elapsed = now - startTime;
-        const progressValue = Math.min(1, elapsed / 2000); 
+        const progressValue = Math.min(1, elapsed / chargeTime); 
         setProgress(progressValue);
         
         if (now < endTime) {
@@ -24,7 +25,7 @@ const ProgressBar = () => {
     };
 
     fillProgress();
-  }, []); // Se ejecuta solo una vez al montar el componente
+  }, []);
 
   return (
     <div className="progress-container">

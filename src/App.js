@@ -6,6 +6,7 @@ import CreditSimulator from './components/layout/CreditSimulator';
 import CurrencyExchange from './components/layout/CurrencyExchange';
 import LoadingScreen from './components/layout/LoadingScreen';
 
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [selectedOption, setSelectedOption] = useState('');
@@ -21,6 +22,7 @@ function App() {
     event.preventDefault();
     
   }
+
   
 
   const renderContent = () => {
@@ -45,16 +47,18 @@ function App() {
   return (
     <div className="container-fluid" onContextMenu={ preventContextMenu }>
       <div className="row">
-        <div className="col-sm-2 bg-dark text-white sidebar">
-          <ul className="list-group list-group-flush text-center">
-            <li className="list-group-item bg-dark text-white border-0" onClick={() => setSelectedOption('Opciones')}>Opciones</li>
-            <li className="list-group-item bg-dark text-white border-0" onClick={() => setSelectedOption('Descuentos')}>Descuentos</li>
-            <li className="list-group-item bg-dark text-white border-0" onClick={() => setSelectedOption('IVA 19%')}>IVA 19%</li>
-            <li className="list-group-item bg-dark text-white border-0" onClick={() => setSelectedOption('Simulador de Crédito')}>Simulador de Crédito</li>
-            <li className="list-group-item bg-dark text-white border-0" onClick={() => setSelectedOption('Intercambio de Divisas')}>Intercambio de Divisas</li>
+        <div id="main-div" className="col-sm-3 text-white sidebar p-0">
+          <ul className=" list-group list-group-flush text-center">
+            <li className="list-group-item  text-white border-0"              
+            > Opciones </li> 
+            
+            <li className="li-hover list-group-item  text-white border-0" onClick={() => setSelectedOption('Descuentos')}>Descuentos</li>
+            <li className="li-hover list-group-item  text-white border-0" onClick={() => setSelectedOption('IVA 19%')}>IVA 19%</li>
+            <li className="li-hover list-group-item text-white border-0" onClick={() => setSelectedOption('Simulador de Crédito')}>Simulador de Crédito</li>
+            <li className="li-hover list-group-item text-white border-0" onClick={() => setSelectedOption('Intercambio de Divisas')}>Intercambio de Divisas</li>
           </ul>
         </div>
-        <div className="col-sm-10 main-content">
+        <div className="col-sm-9 main-content">
           {renderContent()}
         </div>
       </div>
