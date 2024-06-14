@@ -29,7 +29,7 @@ function App() {
     switch (selectedOption) {
       case 'Descuentos':
         return <Discounts />;
-      case 'IVA 19%':
+      case 'IVA':
         return <IVA />;
       case 'Simulador de Crédito':
         return <CreditSimulator />;
@@ -47,15 +47,15 @@ function App() {
   return (
     <div className="container-fluid" onContextMenu={ preventContextMenu }>
       <div className="row">
-        <div id="main-div" className="col-sm-3 text-white sidebar p-0">
+        <div id="main-div" className="col-sm-3 text-white sidebar p-0 pt-3">
           <ul className=" list-group list-group-flush text-center">
             <li className="list-group-item  text-white border-0"              
             > Opciones </li> 
             
-            <li className="li-hover list-group-item  text-white border-0" onClick={() => setSelectedOption('Descuentos')}>Descuentos</li>
-            <li className="li-hover list-group-item  text-white border-0" onClick={() => setSelectedOption('IVA 19%')}>IVA 19%</li>
-            <li className="li-hover list-group-item text-white border-0" onClick={() => setSelectedOption('Simulador de Crédito')}>Simulador de Crédito</li>
-            <li className="li-hover list-group-item text-white border-0" onClick={() => setSelectedOption('Intercambio de Divisas')}>Intercambio de Divisas</li>
+            <li className="li-hover list-group-item  text-white border-0"  onClick={() => setSelectedOption('Descuentos')}>Descuentos</li>
+            <li className="li-hover list-group-item  text-white border-0"  onClick={() => setSelectedOption('IVA')}>IVA</li>
+            <li className="li-hover list-group-item  text-white  border-0"  onClick={() => setSelectedOption('Simulador de Crédito')}>Simulador de Crédito</li>
+            <li className="li-hover list-group-item  text-white  border-0"  onClick={() => setSelectedOption('Intercambio de Divisas')}>Intercambio de Divisas</li>
           </ul>
         </div>
         <div className="col-sm-9 main-content">

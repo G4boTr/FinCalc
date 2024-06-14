@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-function Discounts() {
+
+function formatNumber(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  
+}
+export default function Discounts() {
 
   const [value, setValue] = useState("");
   const [discount, setDiscount] = useState("");
@@ -8,12 +13,16 @@ function Discounts() {
 
 
   const handleValueChange =  (event) => { 
-    setValue(event.target.value);
+    const inputValue = event.target.value;    
+    setValue(inputValue);
+    
   }
 
   const handleDiscountChange =  (event) => {
     setDiscount(event.target.value);
   }
+
+ 
 
 
   useEffect(() => {
@@ -24,7 +33,7 @@ function Discounts() {
       setResult("");
       setSaving("");
       return;
-    }
+    } 
 
     const result = numValue - (numValue * numDiscount / 100);
     setResult(result.toFixed());
@@ -34,25 +43,25 @@ function Discounts() {
   return (
     <div className="table-responsive-md">
       <h2>Descuentos</h2>
-      <table className="table">
-        <thead>
+      <table className="table table-borderless border border-2">
+        <thead className="table-dark">
         <tr>
           <th>Valor</th>
-          <th>Descuento  %</th>
+          <th>Descuento %</th>
           <th>Resultado con descuento</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <td><input value={value} onChange={handleValueChange} placeholder="Ingresa valor" type="text"></input></td>
-          <td><input value={discount} onChange={handleDiscountChange} placeholder="Ingresa % descuento" type="text" maxLength={3} ></input></td>
-          <td><input value={result} disabled type="text"></input></td>
+          <td><input inputMode="numeric" pattern="[0-9]*" className="form-control" value={ value } onChange={ handleValueChange } placeholder="Ingresa valor" type="text"></input></td>
+          <td><input className="form-control"  style={ { width: "55px"} } value={ discount } onChange={handleDiscountChange} placeholder="%?" type="text" maxLength={2} ></input></td>
+          <td><input className="form-control" value={ `$ ${formatNumber(result) }`} disabled type="text"></input></td>
         </tr>
         </tbody>
         <tfoot>
           <tr>
             <td colSpan={3}>
-              <p >Usted ahorro {saving}</p>
+              <p >Usted ahorro: $ { formatNumber(saving) } </p>
             </td>
           </tr>
         </tfoot>
@@ -61,4 +70,6 @@ function Discounts() {
   );
 }
 
-export default Discounts;
+
+export { formatNumber };
+
