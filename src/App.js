@@ -1,30 +1,10 @@
-//import './App.css';
-/*
-import ImplementLoadingScreen from './components/layout/ImplementLoadingScreen';
-
-
-function App() {   
-  
-  const preventContextMenu = (event) => {
-    event.preventDefault();
-    
-  }
- 
-  return (
-    <div className="container d-flex m-0 p-0" onContextMenu={ preventContextMenu }> 
-      <ImplementLoadingScreen />            
-    </div>
-  );
-}
-export default App;
-*/
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Discounts from './components/Discounts';
-import IVA from './components/IVA';
-import CreditSimulator from './components/CreditSimulator';
-import CurrencyExchange from './components/CurrencyExchange';
-import LoadingScreen from './components/LoadingScreenN';
+import Discounts from './components/layout/Discounts';
+import IVA from './components/layout/IVA';
+import CreditSimulator from './components/layout/CreditSimulator';
+import CurrencyExchange from './components/layout/CurrencyExchange';
+import LoadingScreen from './components/layout/LoadingScreen';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -36,6 +16,12 @@ function App() {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  const preventContextMenu = (event) =>{
+    event.preventDefault();
+    
+  }
+  
 
   const renderContent = () => {
     switch (selectedOption) {
@@ -57,9 +43,9 @@ function App() {
   }
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" onContextMenu={ preventContextMenu }>
       <div className="row">
-        <div className="col-sm-3 bg-dark text-white sidebar">
+        <div className="col-sm-2 bg-dark text-white sidebar">
           <ul className="list-group list-group-flush text-center">
             <li className="list-group-item bg-dark text-white border-0" onClick={() => setSelectedOption('Opciones')}>Opciones</li>
             <li className="list-group-item bg-dark text-white border-0" onClick={() => setSelectedOption('Descuentos')}>Descuentos</li>
@@ -68,7 +54,7 @@ function App() {
             <li className="list-group-item bg-dark text-white border-0" onClick={() => setSelectedOption('Intercambio de Divisas')}>Intercambio de Divisas</li>
           </ul>
         </div>
-        <div className="col-sm-9 main-content">
+        <div className="col-sm-10 main-content">
           {renderContent()}
         </div>
       </div>

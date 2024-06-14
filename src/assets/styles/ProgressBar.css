@@ -7,7 +7,7 @@
     border-radius: 5px; 
     width: 0%;
     height: 24px;
-    background-color: #3f87ec; /* Color de la barra de progreso */
-    transition: width 0.3s ease-in-out; /* Transición suave de la barra de progreso */
+    background-color: #3f87ec; 
+    transition: width 0.3s ease-in-out;
   }
   

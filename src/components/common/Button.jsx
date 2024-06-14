@@ -1,14 +1,9 @@
-
-
 function ButtonMain( { text, onClick, className, width, height } ) {
 
-    const style = {
-        width: width,
-        height: height
-    }; 
+ 
 
     return(
-        <button className= "">           
+        <button className= {className} onClick={onClick} width={width} height={height}>           
             { text }
         </button>
     );

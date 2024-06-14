@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '.././assets/styles/ProgressBar.css'; // Archivo CSS para estilos
+import '../../assets/styles/ProgressBar.css';
 
 const ProgressBar = () => {
   const [progress, setProgress] = useState(0);
@@ -7,12 +7,12 @@ const ProgressBar = () => {
   useEffect(() => {
     const fillProgress = () => {
       let startTime = Date.now();
-      const endTime = startTime + 2000; // 2800 milisegundos = 2.8 segundos
+      const endTime = startTime + 2000; 
       
       const updateProgress = () => {
         const now = Date.now();
         const elapsed = now - startTime;
-        const progressValue = Math.min(1, elapsed / 2000); // Asegurarse de que el progreso máximo sea 1
+        const progressValue = Math.min(1, elapsed / 2000); 
         setProgress(progressValue);
         
         if (now < endTime) {
@@ -28,7 +28,7 @@ const ProgressBar = () => {
 
   return (
     <div className="progress-container">
-        <h>Cargando...</h>
+        <h1>Cargando...</h1>
         <div className="progress-bar bg-success" role="progressbar" style={{ width: `${progress * 100}%` }}></div>
     </div>
   );

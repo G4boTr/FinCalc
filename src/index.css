@@ -2,5 +2,7 @@ html body {
     margin: 0;
     padding: 0;    
     overflow: hidden;
-    background-color: rgb(82, 152, 129);
+    background-color: rgb(82, 152, 129);    
+    -webkit-user-select: none;
+    user-select: none;
 }
