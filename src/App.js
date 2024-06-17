@@ -36,7 +36,7 @@ function App() {
       case 'Intercambio de Divisas':
         return <CurrencyExchange />;
       default:
-        return <h2>Elige una de las opciones...</h2>;
+        return <h2 style={{color: "white"}}>Elige una de las opciones...</h2>;
     }
   };
 

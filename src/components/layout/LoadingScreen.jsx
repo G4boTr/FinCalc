@@ -1,6 +1,5 @@
 import ProgressBar from './ProgressBar';
 
-
 function LoadingScreen() {
 
   const preventContextMenu = (event) => {

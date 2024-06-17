@@ -35,7 +35,7 @@ function IVA() {
  
   return (
     <div>
-      <h2>IVA</h2>
+      <h2 style={{color: "white"}}>IVA</h2>
       <table className="table table-borderless border border-2">
         <thead className="table-dark">
           <tr>
@@ -46,7 +46,7 @@ function IVA() {
           <tbody>
             <tr>
               <td>
-                <input className="form-control" onKeyDownCapture={handleKeyPressed} onBlur={calculateIva} placeholder="Ingrese Valor" type="text" value={inputValue} onChange={handleInputChange}/>
+                <input className="form-control" onKeyDownCapture={handleKeyPressed} onBlur={calculateIva} placeholder="Ingrese Valor" type="number" value={inputValue} onChange={handleInputChange}/>
               </td>
               <td>
                 <select className="form-select" value={ivaRate} onChange={handleSelectChange} onClick={calculateIva}>
@@ -59,7 +59,7 @@ function IVA() {
         <tfoot>
           <tr>
             <td colSpan={2}>
-              <p>El valor del IVA es: $ {formatNumber(ivaValue)} </p>
+              <p style={{color: "green"}}>El valor del IVA es: $ {formatNumber(ivaValue)} </p>
             </td>
           </tr>
         </tfoot>

@@ -42,7 +42,7 @@ export default function Discounts() {
 
   return (
     <div className="table-responsive-md">
-      <h2>Descuentos</h2>
+      <h2 style={{color: "white"}}>Descuentos</h2>
       <table className="table table-borderless border border-2">
         <thead className="table-dark">
         <tr>
@@ -53,15 +53,15 @@ export default function Discounts() {
         </thead>
         <tbody>
         <tr>
-          <td><input inputMode="numeric" pattern="[0-9]*" className="form-control" value={ value } onChange={ handleValueChange } placeholder="Ingresa valor" type="text"></input></td>
-          <td><input className="form-control"  style={ { width: "55px"} } value={ discount } onChange={handleDiscountChange} placeholder="%?" type="text" maxLength={2} ></input></td>
-          <td><input className="form-control" value={ `$ ${formatNumber(result) }`} disabled type="text"></input></td>
+          <td><input min= "0" inputMode="numeric" pattern="[0-9]*" className="form-control" value={ value } onChange={ handleValueChange } placeholder="Ingresa valor" type="number"></input></td>
+          <td><input minLength={1} className="form-control"  style={ { width: "65px"} } value={ discount } onChange={handleDiscountChange} placeholder="%?" type="text" maxLength={2} ></input></td>
+          <td><input min="0" style={{color: "green"}} className="form-control" value={ `$ ${formatNumber(result) }`} disabled type="text"></input></td>
         </tr>
         </tbody>
         <tfoot>
           <tr>
             <td colSpan={3}>
-              <p >Usted ahorro: $ { formatNumber(saving) } </p>
+              <p style={{color: "green"}}>Usted ahorro: $ { formatNumber(saving) } </p>
             </td>
           </tr>
         </tfoot>
