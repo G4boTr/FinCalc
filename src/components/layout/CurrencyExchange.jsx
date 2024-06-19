@@ -104,7 +104,7 @@ function CurrencyExchange() {
         </thead>
         <tbody>
             <tr>
-              <td><input onChange={handleImporteValueChange} type="text"  placeholder="Ingrese importe"/></td>
+              <td><input className="form-control" onChange={handleImporteValueChange} type="text"  placeholder="Ingrese importe"/></td>
               <td>
                 <select onChange={handleOfImport} value={ofImport}  className="form-select" name="" id="">
                   <option value="USD">Dolar USD</option>
@@ -113,7 +113,7 @@ function CurrencyExchange() {
                 </select>
               </td>
               <td>
-                <select value={toImport}  className="form-select" name="" id="" onChange={handleToImport}>
+                <select value={toImport} className="form-select" name="" id="" onChange={handleToImport}>
                   <option value="USD">Dolar USD</option>
                   <option value="EUR">Euro EUR</option>
                   <option value="COP">Peso COP</option>

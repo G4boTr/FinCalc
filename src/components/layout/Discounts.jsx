@@ -43,7 +43,7 @@ export default function Discounts() {
   return (
     <div className="table-responsive-md">
       <h2 style={{color: "white"}}>Descuentos</h2>
-      <table className="table table-borderless border border-2">
+      <table className="table table-borderless border border-2" >
         <thead className="table-dark">
         <tr>
           <th>Valor</th>
@@ -58,7 +58,7 @@ export default function Discounts() {
           <td><input min="0" style={{color: "green"}} className="form-control" value={ `$ ${formatNumber(result) }`} disabled type="text"></input></td>
         </tr>
         </tbody>
-        <tfoot>
+        <tfoot style={{borderCollapse: "separate", borderSpacing: "0"}}>
           <tr>
             <td colSpan={3}>
               <p style={{color: "green"}}>Usted ahorro: $ { formatNumber(saving) } </p>
