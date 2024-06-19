@@ -6,13 +6,14 @@ function CreditSimulator() {
 
 
   const [amount, setAmount] = useState("");
-  const [frecuency, setFrecuency] = useState("");
+  const [frecuency, setFrecuency] = useState("Mensual");
   const [yearFrecuency, setYearFrecuency] = useState("");
   const [interest, setInterest] = useState("");
-
+  const [cuotas, setCuotas] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
+    calcularCuotas();
     setShowModal(true);
   }
 
@@ -45,10 +46,36 @@ function CreditSimulator() {
   }
 
   const [selectDate, setSelectDate] = useState(todayDate());
-  console.log("ShowModal:", showModal)
+
+  const calcularCuotas = () => {
+    const cuotasCalculadas = [];
+    const monto = parseFloat(amount);
+    const plazo = parseInt(yearFrecuency);
+    const interesAnual = parseFloat(interest) / 100;
+
+    
+    for (let i = 1; i <= plazo * 12; i++) {
+      const abonoInteres = (monto * interesAnual) / 12;
+      const abonoCapital = monto / (plazo * 12);
+      const totalCuota = abonoCapital + abonoInteres;
+      const saldoPendiente = monto - abonoCapital * i;
+      
+      cuotasCalculadas.push({
+        id: i,
+        abonoCapital: abonoCapital.toFixed(2),
+        abonoInteres: abonoInteres.toFixed(2),
+        totalCuota: totalCuota.toFixed(2),
+        saldoPendiente: saldoPendiente.toFixed(2)
+      });
+    }
+
+    
+    setCuotas(cuotasCalculadas);
+  };
+  
   return (
     <div>
-      <TableModal showModal={showModal} closeModal={closeModal} />
+      <TableModal showModal={showModal} closeModal={closeModal} amount={amount} selectDate={selectDate} frecuency={frecuency} yearFrecuency={yearFrecuency} interest={interest} cuotas={cuotas}/>
       <h2 style={{ color: "white" }}>Simulador de Crédito</h2>
       <table className="table table-borderless border border-2">
         <thead className="table-dark">
@@ -66,7 +93,7 @@ function CreditSimulator() {
             <td><input onChange={handleAmountChange} value={amount} className="form-control" type="number" placeholder="Monto: $" /></td>
             <td>
               <select onChange={handleFrecuencyChange} value={frecuency} className="form-select">
-                <option value="mensual">Mensual</option>
+                <option value="Mensual">Mensual</option>
               </select>
             </td>
             <td>
