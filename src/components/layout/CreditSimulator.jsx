@@ -4,12 +4,11 @@ import TableModal from "./TableModal.jsx";
 
 function CreditSimulator() {
 
-
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(0);
   const [frecuency, setFrecuency] = useState("Mensual");
-  const [yearFrecuency, setYearFrecuency] = useState("");
-  const [interest, setInterest] = useState("");
-  const [cuotas, setCuotas] = useState([]);
+  const [yearFrecuency, setYearFrecuency] = useState(1);
+  const [interest, setInterest] = useState(0);
+  const [cuotas, setCuotas] = useState({cuotas: [], totalPagado: 0, totalInteresPagado: 0});
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -52,30 +51,44 @@ function CreditSimulator() {
     const monto = parseFloat(amount);
     const plazo = parseInt(yearFrecuency);
     const interesAnual = parseFloat(interest) / 100;
-
-    
-    for (let i = 1; i <= plazo * 12; i++) {
-      const abonoInteres = (monto * interesAnual) / 12;
-      const abonoCapital = monto / (plazo * 12);
-      const totalCuota = abonoCapital + abonoInteres;
-      const saldoPendiente = monto - abonoCapital * i;
+    const cuotasTotales = plazo * 12;
+  
+    const cuota = monto * (interesAnual / 12) / (1 - Math.pow(1 + (interesAnual / 12), -cuotasTotales));
+  
+    let saldoPendiente = monto;
+    let totalPagado = 0;
+    let totalInteresPagado = 0;
+  
+    for (let i = 1; i <= cuotasTotales; i++) {
+      const abonoInteres = saldoPendiente * (interesAnual / 12);
+      const abonoCapital = cuota - abonoInteres;
+      saldoPendiente -= abonoCapital;
       
+      totalPagado += cuota;
+      totalInteresPagado += abonoInteres;
+  
       cuotasCalculadas.push({
         id: i,
         abonoCapital: abonoCapital.toFixed(2),
         abonoInteres: abonoInteres.toFixed(2),
-        totalCuota: totalCuota.toFixed(2),
+        totalCuota: cuota.toFixed(2),
         saldoPendiente: saldoPendiente.toFixed(2)
       });
     }
-
-    
-    setCuotas(cuotasCalculadas);
+  
+    const resultadoFinal = {
+      cuotas: cuotasCalculadas,
+      totalPagado: totalPagado.toFixed(2),
+      totalInteresPagado: totalInteresPagado.toFixed(2)
+    };
+  
+    setCuotas(resultadoFinal);
   };
+  
   
   return (
     <div>
-      <TableModal showModal={showModal} closeModal={closeModal} amount={amount} selectDate={selectDate} frecuency={frecuency} yearFrecuency={yearFrecuency} interest={interest} cuotas={cuotas}/>
+      <TableModal showModal={showModal} closeModal={closeModal} amount={amount} selectDate={selectDate} frecuency={frecuency} yearFrecuency={yearFrecuency} interest={interest} cuotas={cuotas} />
       <h2 style={{ color: "white" }}>Simulador de Crédito</h2>
       <table className="table table-borderless border border-2">
         <thead className="table-dark">
