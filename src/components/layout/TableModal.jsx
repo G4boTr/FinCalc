@@ -11,6 +11,8 @@ function TableModal(  { showModal, closeModal, amount, frecuency, yearFrecuency,
 
   const tableRef = useRef(null);
 
+  const nameSaveFile = `table-credit${selectDate}-pdf`;
+
   const generatePDF = () => {
 
     const table = tableRef.current;
@@ -21,48 +23,9 @@ function TableModal(  { showModal, closeModal, amount, frecuency, yearFrecuency,
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save("tabla_credito_pdf");
+      pdf.save(nameSaveFile);
     });
   };
-
-/*
-const generatePDF = () => {
-  
-  const table = tableRef.current;
-  
-  const tableHtml = table.outerHTML;
-
-  fetch('http://localhost:3000/generar-pdf', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      html: tableHtml,
-    }),
-  })
-    .then(response => response.blob())
-    .then(blob => {
-      
-      const url = window.URL.createObjectURL(new Blob([blob]));
-     
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'tabla_credito.pdf');
-      
-      document.body.appendChild(link);
-     
-      link.click();
-      
-      link.parentNode.removeChild(link);
-    })
-    .catch(error => {
-      console.error('Error al descargar el PDF', error);
-      
-    });
-};
-
-*/
 
   const totalPagado = cuotas.totalPagado;
   const totalInteresPagado = cuotas.totalInteresPagado;
@@ -72,7 +35,6 @@ const generatePDF = () => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     
   }
-
 
   return (
     <div className={modalClassName}>

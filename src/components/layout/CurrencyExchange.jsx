@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { formatNumber } from "./Discounts";
+import config from "../../config";
+
+
 
 function CurrencyExchange() {
 
@@ -58,10 +61,10 @@ function CurrencyExchange() {
 
   });
 
-  /*
+/*
   useEffect(()=> {
 
-    const apiKey = "de2df6cb48fd88aea69d9df9";
+    const apiKey = config.apiKey;
     const url = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`
 
     fetch(url)
@@ -76,7 +79,8 @@ function CurrencyExchange() {
 
       
   },[]);
- */
+
+*/
   useEffect(() => {
     fetch("/api/currencies.json")
       .then((response) =>  response.json())
