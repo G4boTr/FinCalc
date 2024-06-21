@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { formatNumber } from "./Discounts";
-import config from "../../config";
+//import config from "../../config";
 
 
 
