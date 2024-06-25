@@ -40,7 +40,7 @@ function TableModal(  { showModal, closeModal, amount, frecuency, yearFrecuency,
     <div className={modalClassName}>
       <div className="modal-content bg-dark">
         <span onClick={closeModal} className="close">&times;</span>
-        <div className="table-responsive-md" ref={tableRef}>
+        <div className="modal-tab table-responsive-md" ref={tableRef}>
           <table className="table table-striped table-dark table-borderless border border-2 table-hover">
             <thead className="table-dark">
               <tr>
